@@ -1,0 +1,30 @@
+:root { font-family: 'Segoe UI', Arial, sans-serif; color: #25312a; background: #f5f4ef; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+button { font: inherit; }
+main { max-width: 1060px; margin: 0 auto; padding: 0 36px; }
+header { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #dddfd7; padding: 28px 0; }
+header strong { font: 26px Georgia, serif; letter-spacing: -.7px; }
+.brand-mark { display: grid; place-items: center; background: #9e3444; color: #fff; border-radius: 4px; width: 35px; height: 40px; font: italic 28px Georgia, serif; }
+.environment { margin-left: auto; font-size: 12px; color: #6d7766; padding: 6px 10px; border: 1px solid #dce1d3; border-radius: 4px; }
+section { max-width: 750px; padding: 64px 0 60px; }
+.eyebrow { color: #8f3f4a; text-transform: uppercase; letter-spacing: 1.6px; font-size: 11px; font-weight: 600; margin: 0 0 17px; }
+h1 { font: 48px/1.15 Georgia, serif; font-weight: 400; letter-spacing: -1.5px; margin: 0 0 20px; }
+.intro { font-size: 15px; line-height: 1.8; color: #6d7566; max-width: 580px; }
+.connection-card { background: #fff; border: 1px solid #dee3d6; border-radius: 9px; padding: 25px; margin-top: 34px; }
+.connection-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+h2 { font-size: 15px; font-weight: 600; margin: 0; }
+.status { display: flex; align-items: center; gap: 7px; font-size: 11px; color: #856a42; background: #f6f2e9; padding: 6px 9px; border-radius: 4px; }
+.connected .status { color: #466b4b; background: #edf4eb; }
+.dot { background: currentColor; width: 6px; height: 6px; border-radius: 50%; }
+.connection-card p { color: #6d7566; font-size: 13px; line-height: 1.8; margin: 16px 0 21px; }
+code { font-size: 12px; background: #f1f3ec; color: #4f5f46; border-radius: 3px; padding: 3px 6px; }
+button { border: 1px solid #9e3444; border-radius: 5px; color: #fff; background: #9e3444; font-size: 12px; font-weight: 500; padding: 10px 14px; cursor: pointer; }
+button span { padding-left: 12px; }
+button:hover { background: #822b38; }
+button:disabled { opacity: .55; cursor: wait; }
+button:focus-visible { outline: 3px solid #bd8390; outline-offset: 4px; }
+.project-notes { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; color: #717b68; font-size: 12px; line-height: 1.8; margin-top: 25px; }
+.project-notes strong { font-weight: 600; color: #4e5d46; }
+footer { border-top: 1px solid #dddfd7; padding: 22px 0; color: #7b8571; font-size: 11px; }
+@media (max-width: 640px) { main { padding: 0 22px; } section { padding: 42px 0; } h1 { font-size: 35px; } .connection-card { padding: 20px; } .project-notes { grid-template-columns: 1fr; gap: 0; } .environment { font-size: 10px; } }
