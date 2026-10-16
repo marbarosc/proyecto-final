@@ -1,64 +1,56 @@
-# Asistente de dosieres de prensa
+﻿# Dosier
 
-Base de desarrollo para consultar dosieres de la Consejería de Economía y Hacienda de la Junta de Castilla y León.
+Asistente para consultar dosieres de prensa de la Consejería de Economía y Hacienda de la Junta de Castilla y León. Responde con fuentes y fragmentos verificables, avisa cuando un dato no consta e incluye un buscador de documentos.
 
-## Estructura
+## Datos y tecnología
 
-- `src/proyecto_final/api.py`: servidor FastAPI y comprobación `/api/health`.
-- `web/`: interfaz Svelte con TypeScript y Vite.
-- `maquetas.html`: referencia visual independiente con datos ficticios.
-- `dosieres/`: PDF locales; no se incorporan al repositorio.
-- `.env`: configuración privada del servidor; no se incorpora al repositorio.
-- `uv.lock` y `web/package-lock.json`: versiones de las dependencias.
+Los datos son ficticios y reproducibles, basados en `maquetas.html`: 7 dosieres simulados del 10 al 16 de octubre de 2026, 84 recortes, 78 noticias distintas y 2 registros. No se han extraído los PDF de prensa originales.
 
-## Requisitos
+Servidor Python con FastAPI y RAG; interfaz Svelte con TypeScript y Vite. Generación: `gpt-6-luna`; embeddings: `text-embedding-3-small` (configurables en el entorno). El corpus y el índice se generan en `data/` y se reutilizan en los siguientes arranques. La clave permanece en el servidor; el navegador solo consulta `/api`.
 
-Python 3.13, uv y Node.js LTS con npm. Después de instalar Node.js en Windows, abre una nueva terminal para actualizar el `PATH`.
+## Cómo arrancar
 
-Las dependencias Python se gestionan exclusivamente con `uv`. Para reconstruir el entorno, ejecuta `uv sync` desde la raíz. Si la red requiere un proxy, configura `HTTPS_PROXY` en esa terminal antes de descargar dependencias.
-
-Las dependencias de la interfaz se instalan con `npm ci` dentro de `web/`. El proxy de npm se ha configurado a partir de `HTTPS_PROXY` del `.env`; su valor no se incluye en el repositorio.
-
-## Arranque en desarrollo
-
-Abre dos terminales. En la primera, desde la raíz del proyecto:
+Requisitos: Python 3.13, uv y Node.js con npm. Desde la raíz:
 
 ```powershell
-uv run uvicorn proyecto_final.api:app --reload --host 127.0.0.1 --port 8000
+uv sync
 ```
 
-En la segunda:
+Crea un `.env` privado en la raíz con `OPENAI_API_KEY` y, si tu red lo necesita, `HTTPS_PROXY` y `NO_PROXY`. No subas ese archivo a Git. La primera ejecución necesita acceso al proveedor para crear los embeddings.
+
+Arranca el servidor:
+
+```powershell
+uv run servidor.py
+```
+
+En otra terminal, instala y arranca la interfaz:
 
 ```powershell
 cd web
-npm run dev
+npm.cmd ci
+npm.cmd run dev
 ```
 
-En PowerShell también puedes usar `npm.cmd` si la política de ejecución bloquea `npm.ps1`, sin cambiar esa política.
+Abre http://127.0.0.1:5173. El servidor escucha en el puerto 8000 y Vite reenvía las peticiones `/api` a ese puerto.
 
-- Interfaz: http://127.0.0.1:5173
-- API: http://127.0.0.1:8000/api/health
-- Documentación de la API: http://127.0.0.1:8000/docs
+## Cómo lo comprobé
 
-La API carga el `.env` de la raíz con `python-dotenv`. La interfaz utiliza rutas relativas `/api`; el servidor de desarrollo de Vite las reenvía a `http://127.0.0.1:8000` conservando el prefijo `/api`. Esta regla es para desarrollo: un despliegue necesitará su propia configuración de encaminamiento.
+- «¿En cuántas noticias se menciona a la Junta de Castilla y León?» → 32 noticias distintas; registro REG-001.
+- «¿Existen noticias relacionadas con la automoción?» → 12 noticias distintas y 14 recortes, con sus fuentes.
+- «¿Qué previsión hay sobre la economía regional, nacional e internacional?» → 2,1 %, 2,4 % y 2,9 % para 2026, respectivamente, con tres fuentes ficticias.
+- «¿Cuál fue la tasa de paro en 1980?» → no consta, sin generar una cifra; registro de cobertura REG-002.
 
-También puedes iniciar el servidor, sin recarga automática, con `uv run proyecto-final`.
+Las peticiones JSON están en `ejemplos/`. Las respuestas capturadas están en [capturas/comprobaciones.json](capturas/comprobaciones.json) y los fragmentos para contrastarlas en [capturas/fuentes-verificadas.html](capturas/fuentes-verificadas.html).
 
-## Comprobaciones
+## Entregable
 
-Desde `web/`:
+[Ver entregable.pdf](entregable.pdf) · 11 páginas A4, con cinco capturas completas, explicación del proyecto y comprobaciones. También está disponible [entregable.html](entregable.html); conserva la carpeta `capturas/` junto a él.
+
+Para regenerarlo, con ambos servidores arrancados y Microsoft Edge instalado, ejecuta en `web/`:
 
 ```powershell
-npm run check
-npm run build
+node capturas.mjs
 ```
 
-Con los dos servidores arrancados, la petición a http://127.0.0.1:5173/api/health debe responder:
-
-```json
-{"status":"ok","service":"dosieres-api"}
-```
-
-## Alcance de esta preparación
-
-La pantalla inicial verifica la conexión entre Svelte y FastAPI. La consulta de PDF, la base de datos y las llamadas a OpenAI se implementarán sobre esta estructura. Las comprobaciones de conexión no llaman a OpenAI ni envían dosieres a servicios externos.
+Utiliza `playwright-core` y Edge instalado; no descarga navegadores. `node capturas.mjs --pdf` regenera solo el informe y el PDF a partir de las evidencias guardadas.

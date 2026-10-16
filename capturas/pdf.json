@@ -1,0 +1,14 @@
+{
+  "archivo": "entregable.pdf",
+  "paginas": 11,
+  "formato": "A4",
+  "imagenes": 5,
+  "paginas_con_capturas": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "bytes": 459696
+}

@@ -1,0 +1,177 @@
+{
+  "fecha": "2026-10-16T11:08:59.286Z",
+  "zona_horaria": "Europe/Madrid",
+  "url": "http://127.0.0.1:5173",
+  "navegador": "Microsoft Edge (channel: msedge)",
+  "viewport": {
+    "width": 1366,
+    "height": 900
+  },
+  "modelo": "gpt-6-luna",
+  "embeddings": "text-embedding-3-small",
+  "consultas": [
+    {
+      "titulo": "Menciones a la Junta",
+      "pregunta": "¿En cuántas noticias se menciona a la Junta de Castilla y León?",
+      "captura": "01-junta.png",
+      "dimensiones": {
+        "width": 1366,
+        "height": 908
+      },
+      "estado": "respondida",
+      "respuesta": "La Junta de Castilla y León se menciona en 32 noticias distintas (35 recortes) [REG-001:0].",
+      "fuentes": [
+        {
+          "id": "REG-001:0",
+          "documento_id": "REG-001",
+          "documento": "Registro de noticias y menciones",
+          "tipo": "registro",
+          "titulo": "Recuento de todas las noticias, menciones a la Junta y automoción",
+          "pagina": null,
+          "fecha": "2026-10-16",
+          "fragmento": "Registro de noticias y menciones. Cobertura: 2026-10-10 a 2026-10-16. 84 recortes; 78 noticias distintas, agrupando las republicaciones del mismo identificador. Mención explícita a la Junta de Castilla y León: 35 recortes correspondientes a 32 noticias distintas. Categoría automoción: 14 recortes y 12 noticias distintas. Subtemas: producción, proveedores, empleo y movilidad eléctrica. Las categorías pueden coincidir en una noticia.",
+          "similitud": 0.673296,
+          "funcion": "evidencia",
+          "simulada": true
+        }
+      ],
+      "datos_demostracion": true,
+      "generacion_utilizada": true,
+      "cotejo_fragmentos": "Todos los fragmentos coinciden literalmente con las fuentes del corpus local."
+    },
+    {
+      "titulo": "Noticias de automoción",
+      "pregunta": "¿Existen noticias relacionadas con la automoción?",
+      "captura": "02-automocion.png",
+      "dimensiones": {
+        "width": 1366,
+        "height": 959
+      },
+      "estado": "respondida",
+      "respuesta": "Sí. En el periodo del 10 al 16 de octubre de 2026, la categoría automoción recoge 12 noticias distintas [REG-001:0]. Tratan sobre producción, proveedores, empleo y movilidad eléctrica [REG-001:0]. Entre ellas hay iniciativas de formación y modernización para adaptar proveedores y plantas a la movilidad eléctrica [D-20261014:N-047:0].",
+      "fuentes": [
+        {
+          "id": "REG-001:0",
+          "documento_id": "REG-001",
+          "documento": "Registro de noticias y menciones",
+          "tipo": "registro",
+          "titulo": "Recuento de todas las noticias, menciones a la Junta y automoción",
+          "pagina": null,
+          "fecha": "2026-10-16",
+          "fragmento": "Registro de noticias y menciones. Cobertura: 2026-10-10 a 2026-10-16. 84 recortes; 78 noticias distintas, agrupando las republicaciones del mismo identificador. Mención explícita a la Junta de Castilla y León: 35 recortes correspondientes a 32 noticias distintas. Categoría automoción: 14 recortes y 12 noticias distintas. Subtemas: producción, proveedores, empleo y movilidad eléctrica. Las categorías pueden coincidir en una noticia.",
+          "similitud": 0.604489,
+          "funcion": "evidencia",
+          "simulada": true
+        },
+        {
+          "id": "D-20261014:N-047:0",
+          "documento_id": "D-20261014",
+          "documento": "dossier 14-10-26.pdf",
+          "tipo": "dosier",
+          "titulo": "La automoción regional refuerza su apuesta por la formación y la modernización",
+          "pagina": 8,
+          "fecha": "2026-10-14",
+          "fragmento": "Las plantas de Valladolid y Palencia y sus proveedores concentran nuevas iniciativas de formación y modernización para avanzar hacia la movilidad eléctrica.\n\nLa noticia menciona a la Junta de Castilla y León en relación con la cualificación de las plantillas y la adaptación de la cadena de componentes.",
+          "similitud": 0.589432,
+          "funcion": "evidencia",
+          "simulada": true
+        }
+      ],
+      "datos_demostracion": true,
+      "generacion_utilizada": true,
+      "cotejo_fragmentos": "Todos los fragmentos coinciden literalmente con las fuentes del corpus local."
+    },
+    {
+      "titulo": "Previsiones económicas",
+      "pregunta": "¿Qué previsión hay sobre la economía regional, nacional e internacional?",
+      "captura": "03-previsiones.png",
+      "dimensiones": {
+        "width": 1366,
+        "height": 934
+      },
+      "estado": "respondida",
+      "respuesta": "Para 2026, se prevé que el PIB de Castilla y León crezca un 2,1 % [D-20261014:N-042:0]; el de España, un 2,4 % [D-20261015:N-056:0]; y el mundial, un 2,9 % [D-20261016:N-069:0]. Son previsiones, no resultados observados.",
+      "fuentes": [
+        {
+          "id": "D-20261014:N-042:0",
+          "documento_id": "D-20261014",
+          "documento": "dossier 14-10-26.pdf",
+          "tipo": "dosier",
+          "titulo": "Perspectivas de la economía de Castilla y León para 2026",
+          "pagina": 3,
+          "fecha": "2026-10-14",
+          "fragmento": "El análisis prevé un avance del PIB de Castilla y León del 2,1 % en 2026, apoyado en los servicios y la inversión industrial.\n\nEl escenario regional menciona a la Junta de Castilla y León y advierte de la dependencia de la demanda industrial. Es una previsión, no un resultado observado.",
+          "similitud": 0.558455,
+          "funcion": "evidencia",
+          "simulada": true
+        },
+        {
+          "id": "D-20261015:N-056:0",
+          "documento_id": "D-20261015",
+          "documento": "dossier 15-10-26.pdf",
+          "tipo": "dosier",
+          "titulo": "El consumo sostiene el escenario de crecimiento nacional",
+          "pagina": 5,
+          "fecha": "2026-10-15",
+          "fragmento": "La previsión para España sitúa el crecimiento de 2026 en el 2,4 %, con el consumo de los hogares como principal soporte.\n\nEl análisis nacional señala riesgos asociados al coste de la energía y la inversión. Es una previsión del PIB, no un dato observado.",
+          "similitud": 0.556654,
+          "funcion": "evidencia",
+          "simulada": true
+        },
+        {
+          "id": "D-20261016:N-069:0",
+          "documento_id": "D-20261016",
+          "documento": "dossier 16-10-26.pdf",
+          "tipo": "dosier",
+          "titulo": "La incertidumbre comercial condiciona las perspectivas internacionales",
+          "pagina": 9,
+          "fecha": "2026-10-16",
+          "fragmento": "El escenario central estima un crecimiento mundial del 2,9 % en 2026, condicionado por la energía y la incertidumbre comercial.\n\nLa previsión de la economía internacional está sujeta a riesgos en el comercio y la demanda. Se refiere al PIB mundial, no a resultados observados.",
+          "similitud": 0.600556,
+          "funcion": "evidencia",
+          "simulada": true
+        }
+      ],
+      "datos_demostracion": true,
+      "generacion_utilizada": true,
+      "cotejo_fragmentos": "Todos los fragmentos coinciden literalmente con las fuentes del corpus local."
+    },
+    {
+      "titulo": "Reconocer los límites del corpus",
+      "pregunta": "¿Cuál fue la tasa de paro en 1980?",
+      "captura": "04-no-consta.png",
+      "dimensiones": {
+        "width": 1366,
+        "height": 1102
+      },
+      "estado": "no_consta",
+      "respuesta": "No consta en los documentos disponibles. La biblioteca no contiene información suficiente para responder a esta pregunta.",
+      "fuentes": [
+        {
+          "id": "REG-002:0",
+          "documento_id": "REG-002",
+          "documento": "Cobertura y comprobación documental",
+          "tipo": "registro",
+          "titulo": "Alcance y límites de la biblioteca",
+          "pagina": null,
+          "fecha": "2026-10-16",
+          "fragmento": "Cobertura: dosieres del 2026-10-10 al 2026-10-16. Corpus ficticio generado para la demostración. No se incorporan series históricas de empleo. No consta una tasa de paro referida a 1980. Este registro documenta el alcance del corpus, no aporta una tasa de paro ni constituye evidencia de datos históricos.",
+          "similitud": null,
+          "funcion": "cobertura",
+          "simulada": true
+        }
+      ],
+      "datos_demostracion": true,
+      "generacion_utilizada": false,
+      "cotejo_fragmentos": "Todos los fragmentos coinciden literalmente con las fuentes del corpus local."
+    }
+  ],
+  "documentos": {
+    "captura": "05-documentos.png",
+    "dosieres_visibles": 7,
+    "dimensiones": {
+      "width": 1366,
+      "height": 1240
+    }
+  }
+}
